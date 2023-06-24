@@ -8,7 +8,7 @@ function connect(){
     try{
         $conn = mysqli_connect(HOST, USER, PASS, DB);
         if($conn){
-            echo "connected";
+            // echo "connected";
             return $conn;
         } else {
             throw new Exception("Cannot connect");

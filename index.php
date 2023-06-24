@@ -1,3 +1,5 @@
+<?php include "config.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +8,18 @@
     <title>Guestbook</title>
 </head>
 <body>
+    <div class="main-container">
     <header>
-
+        <?= getTopNav() ?>
     </header>
     <main>
-
+        <h1>Welcome to my guestbook!</h1>
+        <p>Please sign</p>
+        <p>TY</p>
     </main>
     <footer>
-        
+    <?= getFooter() ?>
     </footer>
+    </div>
 </body>
 </html>
