@@ -14,22 +14,7 @@
     </header>
     <main>
         <h1>Please sign</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Number</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Comment</th>
-<th>
-    <ul>
-        <li><a href="edit.php?id=">Edit</a></li>
-        <li><a href="delete.php?id=">Delete</a></li>
-    </ul>
-</th>
-                </tr>
-            </thead>
-        </table>
+        <?php showGuestBook($conn, TABLE_GUEST) ?>
     </main>
     <footer>
     <?= getFooter() ?>

@@ -3,6 +3,7 @@ define('HOST', 'localhost');
 define('USER', 'root');
 define('PASS', '');
 define('DB', 'guestbook');
+define('TABLE_GUEST', 'guests');
 
 function connect(){
     try{
@@ -19,3 +20,4 @@ function connect(){
     }
     return null;
 }
+
