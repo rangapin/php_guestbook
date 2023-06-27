@@ -15,23 +15,50 @@ function getFooter() {
     return "<footer> Richard Angapin </footer>";
 }
 
-function showGuestBook($handle, $table) {
+function showGuestBook($handle, $table)
+{
     ?>
-        <table>
-            <thead>
-                <tr>
-                    <th>Number</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Comment</th>
-<th>
-    <ul>
-        <li><a href="edit.php?id=">Edit</a></li>
-        <li><a href="delete.php?id=">Delete</a></li>
-    </ul>
-</th>
-                </tr>
-            </thead>
-        </table>
+
+    <table class="guestbook_table" cellpadding="0" cellspacing="0">
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Comment</th>
+            <?php
+            if (isset($_SESSION['user'])){
+            ?>
+            <th>Actions</th>
+            <?php } ?>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        $result = getAllRecords($handle, $table);
+        $counter = 1;
+        while ($row = mysqli_fetch_array($result)) {
+            ?>
+            <tr>
+                <td><?= $counter++; ?></td>
+                <td><?= $row['name'] ?></td>
+                <td><?= $row['email'] ?></td>
+                <td><?= $row['comment'] ?></td>
+                <?php
+                if (isset($_SESSION['user'])){?>
+                <td>
+                    <ul>
+                        <li><a href="edit.php?id=<?= $row['id'] ?>">Edit</a></li>
+                        <li><a href="delete.php?id=<?= $row['id'] ?>">Delete</a></li>
+                    </ul>
+                </td>
+                <?php } ?>
+            </tr>
+            <?php
+        }
+        ?>
+        </tbody>
+    </table>
+
     <?php
 }

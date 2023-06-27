@@ -21,3 +21,28 @@ function connect(){
     return null;
 }
 
+function makeQuery($handle, $query) {
+    return mysqli_query($handle, $query);
+}
+
+function getOneRecord($handle, $id, $table){
+    
+}
+
+function getAllRecords($handle, $table){
+    $query = "SELECT * FROM $table";
+    return makeQuery($handle, $table);
+}
+
+function deleteOneRecord($handle, $id, $table){
+    
+}
+
+function updateOneRecord($handle, $id, $table){
+    
+}
+
+function insertOneRecord($handle, $id, $table){
+    
+}
+
